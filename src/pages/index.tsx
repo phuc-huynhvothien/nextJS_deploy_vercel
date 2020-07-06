@@ -20,22 +20,22 @@ export const StyledHomeBody = styled.div`
   grid-gap: 10px;
 `
 
-function Home() {
-  const { loading, error, data } = useQuery(GET_PRODUCTS, {
-    variables: {
-      input: {
-        page: 1,
-        keyword: 'Samsung',
-      },
-    },
-  })
-  if (error) return <h1>Error</h1>
-  if (loading) return <h1>Loading...</h1>
+function Home({posts}) {
+  // const { loading, error, data } = useQuery(GET_PRODUCTS, {
+  //   variables: {
+  //     input: {
+  //       page: 1,
+  //       keyword: 'Samsung',
+  //     },
+  //   },
+  // })
+  // if (error) return <h1>Error</h1>
+  // if (loading) return <h1>Loading...</h1>
 
-  const products = data?.getAllProduct?.data
-  if (!products || !products.length) {
-    return <p>Not found</p>
-  }
+  // const products = data?.getAllProduct?.data
+  // if (!products || !products.length) {
+  //   return <p>Not found</p>
+  // }
 
   return (
     <>
@@ -46,7 +46,7 @@ function Home() {
       <Header />
       <Layout>
         <StyledHomeBody>
-          {products.map((data) => (
+          {posts.data.map((data) => (
             <Card
               key={data.id}
               imageURL={data.image}
@@ -60,11 +60,26 @@ function Home() {
               {data.name}
             </Card>
           ))}
+          {/* {posts ? <h1>XXX</h1> :  <h1>NULL</h1>} */}
+          <h1>Hi</h1>
         </StyledHomeBody>
       </Layout>
       <Footer />
     </>
   )
 }
-
-export default withApollo({ ssr: true })(Home)
+export async function getStaticProps() {
+  // Call an external API endpoint to get posts.
+  // You can use any data fetching library
+  const res = await fetch('https://min-shop.herokuapp.com/rest/product')
+  const posts = await res.json();
+  // By returning { props: posts }, the Blog component
+  // will receive `posts` as a prop at build time
+  return {
+    props: {
+      posts,
+    },
+  }
+}
+// export default withApollo({ ssr: true })(Home)
+export default Home;
