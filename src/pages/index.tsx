@@ -9,7 +9,8 @@ import { GET_PRODUCTS } from '../graphql/product/product.query'
 import { Header } from '../components/Header'
 import { Footer } from '../components/Footer'
 import { Card } from '../components/ui-kits/Card'
-
+import { useRouter } from 'next/router'
+import Link from 'next/link'
 export const HomeContainer = styled.div``
 
 export const StyledHomeBody = styled.div`
@@ -36,7 +37,7 @@ function Home({posts}) {
   // if (!products || !products.length) {
   //   return <p>Not found</p>
   // }
-
+  const router = useRouter()
   return (
     <>
       <Head>
@@ -52,7 +53,9 @@ function Home({posts}) {
               imageURL={data.image}
               buttonGroups={
                 <>
-                  <Button>View</Button>
+                  <Link href="/product/[id]" as={`/product/${data.id}`}>
+                    <a>View</a>
+                  </Link>
                   <Button>Add to Cart</Button>
                 </>
               }
@@ -60,7 +63,6 @@ function Home({posts}) {
               {data.name}
             </Card>
           ))}
-          {/* {posts ? <h1>XXX</h1> :  <h1>NULL</h1>} */}
           <h1>Hi</h1>
         </StyledHomeBody>
       </Layout>
