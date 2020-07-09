@@ -24,7 +24,7 @@ const ProductDetail = () => {
 
     return (
         <>
-        <h1>HIHI {productDetail.adminId} -  </h1>
+        <h1>HIHI {pid} -  </h1>
         </>
     )
 }
