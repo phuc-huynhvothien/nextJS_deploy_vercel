@@ -53,18 +53,9 @@ function Home({ posts }) {
               buttonGroups={
                 <>
                   <Link href="/product/[id]" as={`/product/${data.id}`}>
-                    <a>View</a>
+                    <a>View by Link</a>
                   </Link>
-
                   <Button onClick={() => Router.push(`/product/${data.id}`)}>View by Router</Button>
-
-                  <Button onClick={() => 
-                  Router.push({
-                    pathname: '/about',
-                    query: { name: 'Vercel' },
-                  })
-                  
-                  }>View</Button>
                   <Button>Add to Cart</Button>
                 </>
               }
