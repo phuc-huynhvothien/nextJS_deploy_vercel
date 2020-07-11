@@ -7,8 +7,12 @@ import {
   StyledHeaderButton,
   StyledHeaderMenuItem,
 } from './Header.styled'
+import { IoMdCart } from 'react-icons/io'
 
-const Header: React.FC = () => {
+interface IHeader {
+  cartCount?: number
+}
+const Header: React.FC<IHeader> = (props) => {
   return (
     <StyledHeader>
       <StyledHeaderLogo>LOGO</StyledHeaderLogo>
@@ -20,7 +24,13 @@ const Header: React.FC = () => {
           <Text>Products</Text>
         </StyledHeaderMenuItem>
       </StyledHeaderMenu>
-      <StyledHeaderButton>Login</StyledHeaderButton>
+      <div className="leftHeader">
+        <div className="cartHolder">
+          <IoMdCart fontSize={20} />
+          {props.cartCount > 0 && <div className="bagde">{props.cartCount}</div>}
+        </div>
+        <StyledHeaderButton>Login</StyledHeaderButton>
+      </div>
     </StyledHeader>
   )
 }

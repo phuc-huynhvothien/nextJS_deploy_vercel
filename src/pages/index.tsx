@@ -9,7 +9,7 @@ import { GET_PRODUCTS } from '../graphql/product/product.query'
 import { Header } from '../components/Header'
 import { Footer } from '../components/Footer'
 import { Card } from '../components/ui-kits/Card'
-import { useRouter } from 'next/router'
+import Router from 'next/router'
 import Link from 'next/link'
 export const HomeContainer = styled.div``
 
@@ -21,7 +21,7 @@ export const StyledHomeBody = styled.div`
   grid-gap: 10px;
 `
 
-function Home({posts}) {
+function Home({ posts }) {
   // const { loading, error, data } = useQuery(GET_PRODUCTS, {
   //   variables: {
   //     input: {
@@ -37,7 +37,6 @@ function Home({posts}) {
   // if (!products || !products.length) {
   //   return <p>Not found</p>
   // }
-  const router = useRouter()
   return (
     <>
       <Head>
@@ -56,6 +55,16 @@ function Home({posts}) {
                   <Link href="/product/[id]" as={`/product/${data.id}`}>
                     <a>View</a>
                   </Link>
+
+                  <Button onClick={() => Router.push(`/product/${data.id}`)}>View by Router</Button>
+
+                  <Button onClick={() => 
+                  Router.push({
+                    pathname: '/about',
+                    query: { name: 'Vercel' },
+                  })
+                  
+                  }>View</Button>
                   <Button>Add to Cart</Button>
                 </>
               }
