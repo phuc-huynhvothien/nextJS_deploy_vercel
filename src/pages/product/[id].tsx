@@ -4,8 +4,10 @@ import { Header } from '../../components/Header'
 import { Footer } from '../../components/Footer'
 import { Banner } from '../../components/Banner'
 import { FilterBar } from '../../components/FilterBar'
+import { SearchBox } from '../../components/SearchBox'
 import { BodyContent, Row, Container, RightSide, LeftSide } from '../../common/StyleComponent'
 import { ButtonTransparent } from '../../components/ui-kits/ButtonTransparent'
+import { Text } from '../../components/ui-kits/Text'
 export interface IProductDetail {
     name: string
     description: string
@@ -17,6 +19,7 @@ export interface PropductDetailProps {
 const ProductDetail: React.FC<PropductDetailProps> = (props) => {
     const url = "http://lezada-next.themesmummy.com/assets/images/backgrounds/breadcrumb-bg-1.png";
     const tag = ["decor", "fashion", "men", "women", "cosmetics", "furniture", "perfumes", "wearable"];
+    const tagFull = ["all categories", "decor", "fashion", "men", "women", "cosmetics", "furniture", "perfumes", "wearable"];
     return (
         <>
             <Header />
@@ -27,17 +30,26 @@ const ProductDetail: React.FC<PropductDetailProps> = (props) => {
                     <Row>
                         <LeftSide>
                             <div className="shop-sidebar">
+                                <SearchBox></SearchBox>
                                 {/* searchbox */}
-
+                                <h2 style={{ paddingBottom: "20px" }}>Categories</h2>
+                                <ul>
+                                    {tagFull.map((item, index) =>
+                                        (
+                                            <li style={{ paddingBottom: "20px", listStyleType: "none" }}>
+                                                <ButtonTransparent active="" children={item.toString()} size="15" line="1.5" color="#7e7e7e" key={index} capitalize={true} ></ButtonTransparent>
+                                            </li>
+                                        ))}
+                                </ul>
                                 {/* categories */}
 
                                 {/* color */}
 
                                 {/* popular product */}
                                 <div>
-                                    {tag.map(item =>
+                                    {tag.map((item, index) =>
                                         (
-                                            <ButtonTransparent active="" children={item.toString() + " /"}  ></ButtonTransparent>
+                                            <ButtonTransparent active="" children={item.toString() + " /"} size="15" line="1.5" color="#7e7e7e" key={index} ></ButtonTransparent>
                                         ))}
                                 </div>
                                 {/* tags */}

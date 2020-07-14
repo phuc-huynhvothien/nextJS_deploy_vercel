@@ -5,8 +5,7 @@ import { StyledFooter } from './Footer.styled'
 const Footer: React.FC = () => {
   return (
     <StyledFooter>
-      <Text>STRANGS Template © 2020</Text>
-      <Text>❤️ Huynh Vo Thien Phuc ❤️</Text>
+      <Text>STRANGS Template © 2020 - Huynh Vo Thien Phuc</Text>
       <Text>Made with ❤️ in Ho Chi Minh city. ^__^  </Text>
     </StyledFooter>
   )
