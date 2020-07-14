@@ -6,7 +6,8 @@ const Footer: React.FC = () => {
   return (
     <StyledFooter>
       <Text>STRANGS Template © 2020</Text>
-      <Text>Made with ❤️ in Ho Chi Minh city. </Text>
+      <Text>❤️ Huynh Vo Thien Phuc ❤️</Text>
+      <Text>Made with ❤️ in Ho Chi Minh city. ^__^  </Text>
     </StyledFooter>
   )
 }
