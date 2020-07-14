@@ -2,6 +2,7 @@ import styled from 'styled-components'
 import Button from '../ui-kits/Button/Button'
 const white = "#FFF"
 const darkCharcoal = "#333"
+
 export const StyledHeader = styled.header`
   position: relative
   .topbar-shadow:before{
@@ -72,7 +73,11 @@ export const StyledHeader = styled.header`
     padding-top: 0
   }
 `
-
+export const StyleHeaderContainer = styled.div`
+  padding-left : 15px;
+  padding-right: 15px;
+  width : 95%;
+`
 export const StyledHeaderContent = styled.div`
   position: relative!important;
   align-items: center!important;

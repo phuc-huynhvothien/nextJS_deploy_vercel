@@ -6,6 +6,7 @@ import {
   StyledHeaderLogo,
   StyledHeaderContentNav,
   StyledHeaderIcon,
+  StyleHeaderContainer,
 } from './Header.styled'
 import { IoMdCart } from 'react-icons/io'
 import { FiHeart, FiSearch } from "react-icons/fi";
@@ -13,14 +14,16 @@ import { FaUserAlt } from "react-icons/fa";
 interface IHeader {
   cartCount?: number
 }
+
 const Header: React.FC<IHeader> = (props) => {
+  const logo = "http://lezada-next.themesmummy.com/assets/images/logo.png";  
   return (
     <StyledHeader>
-      <div className="container">
+      <StyleHeaderContainer>
         <StyledHeaderContent>
           <StyledHeaderLogo>
-            <a href="#">
-              <img src="http://lezada-next.themesmummy.com/assets/images/logo.png" alt="empty" className="img-fluid" />
+            <a >
+              <img src={logo} alt={logo} className="img-fluid"></img>
             </a>
           </StyledHeaderLogo>
           <StyledHeaderContentNav>
@@ -48,7 +51,7 @@ const Header: React.FC<IHeader> = (props) => {
           </StyledHeaderIcon>
         </StyledHeaderContent>
 
-      </div>
+      </StyleHeaderContainer>
 
       {/* <StyledHeaderMenu>
         <StyledHeaderMenuItem>
