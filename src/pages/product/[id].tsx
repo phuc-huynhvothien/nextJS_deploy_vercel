@@ -36,7 +36,7 @@ const ProductDetail: React.FC<PropductDetailProps> = (props) => {
                                 <ul>
                                     {tagFull.map((item, index) =>
                                         (
-                                            <li style={{ paddingBottom: "20px", listStyleType: "none" }}>
+                                            <li style={{ paddingBottom: "20px", listStyleType: "none" }} key={index}>
                                                 <ButtonTransparent active="" children={item.toString()} size="15" line="1.5" color="#7e7e7e" key={index} capitalize={true} ></ButtonTransparent>
                                             </li>
                                         ))}
