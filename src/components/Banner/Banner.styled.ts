@@ -4,11 +4,6 @@ padding-bottom: 70px;
 padding-top: 70px;
 background-image: url(${props =>props.url ? props.url : ""});
 `
-export const StyleBannerContainer = styled.div`
-  padding-left : 15px;
-  padding-right: 15px;
-  width : 100%;
-`
 
 export const StyleBannerTitle = styled.h1`
 font-size: 30px;

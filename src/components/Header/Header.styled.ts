@@ -77,6 +77,7 @@ export const StyleHeaderContainer = styled.div`
   padding-left : 15px;
   padding-right: 15px;
   width : 95%;
+  margin: 0 auto;
 `
 export const StyledHeaderContent = styled.div`
   position: relative!important;

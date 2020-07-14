@@ -11,6 +11,7 @@ import { Footer } from '../components/Footer'
 import { Card } from '../components/ui-kits/Card'
 import Router from 'next/router'
 import Link from 'next/link'
+// import 'bootstrap/dist/css/bootstrap.min.css';
 export const HomeContainer = styled.div``
 
 export const StyledHomeBody = styled.div`

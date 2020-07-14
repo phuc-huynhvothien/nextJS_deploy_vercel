@@ -4,12 +4,8 @@ import { Header } from '../../components/Header'
 import { Footer } from '../../components/Footer'
 import { Banner } from '../../components/Banner'
 import { FilterBar } from '../../components/FilterBar'
-import {
-    StyleBannerLayout,
-    StyleBannerContainer,
-    StyleBannerTitle,
-    StyleBannerUrl
-} from '../../components/Banner/Banner.styled';
+import { BodyContent, Row, Container, RightSide, LeftSide } from '../../common/StyleComponent'
+import { ButtonTransparent } from '../../components/ui-kits/ButtonTransparent'
 export interface IProductDetail {
     name: string
     description: string
@@ -20,16 +16,44 @@ export interface PropductDetailProps {
 
 const ProductDetail: React.FC<PropductDetailProps> = (props) => {
     const url = "http://lezada-next.themesmummy.com/assets/images/backgrounds/breadcrumb-bg-1.png";
+    const tag = ["decor", "fashion", "men", "women", "cosmetics", "furniture", "perfumes", "wearable"];
     return (
         <>
-            {/* <Header />
-            <h2>{props.product?.name}</h2>
-            <StyledProduct dangerouslySetInnerHTML={{ __html: props.product?.description }} />
-            <Footer /> */}
-            <Banner imageUrl="" currentUrl="" title="SayHello" />
-            <FilterBar orderAces={true} perPageItem="1" totalItem="60" />
+            <Header />
+            <Banner imageUrl={url} currentUrl="Home / Shop Left Bar" title="Shop Welcome  ^__^" />
+            <FilterBar orderAces={true} perPageItem="20" totalItem="60" />
+            <BodyContent>
+                <Container>
+                    <Row>
+                        <LeftSide>
+                            <div className="shop-sidebar">
+                                {/* searchbox */}
 
-            
+                                {/* categories */}
+
+                                {/* color */}
+
+                                {/* popular product */}
+                                <div>
+                                    {tag.map(item =>
+                                        (
+                                            <ButtonTransparent active="" children={item.toString() + " /"}  ></ButtonTransparent>
+                                        ))}
+                                </div>
+                                {/* tags */}
+                            </div>
+                        </LeftSide>
+                        <RightSide>
+
+                        </RightSide>
+                    </Row>
+                </Container>
+            </BodyContent>
+
+            <Footer />
+
+
+
         </>
     )
 }

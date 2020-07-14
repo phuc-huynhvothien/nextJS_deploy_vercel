@@ -3,22 +3,22 @@ import { IBanner } from '../../models/IBanner';
 import { Button } from 'react-bootstrap';
 import {
     StyleBannerLayout,
-    StyleBannerContainer,
     StyleBannerTitle,
     StyleBannerUrl
-} from '../Banner/Banner.styled'
-const Banner: React.FC<IBanner> = (props) => {
-    const url = "";
+} from '../Banner/Banner.styled';
+import { Container, Row } from '../../common/StyleComponent'
+
+const Banner: React.FC<IBanner> = ({imageUrl,currentUrl,title}) => {
     return <>
-        <StyleBannerLayout url={url}>
-            <StyleBannerContainer>
-                <div className="row">
+        <StyleBannerLayout url={imageUrl}>
+            <Container>
+                <Row>
                     <div className="col">
-                        <StyleBannerTitle>Shop Left Sidebar</StyleBannerTitle>
-                        <StyleBannerUrl>Home/Shop Left Sidebar </StyleBannerUrl>
+                        <StyleBannerTitle>{title}</StyleBannerTitle>
+                        <StyleBannerUrl>{currentUrl}</StyleBannerUrl>
                     </div>
-                </div>
-            </StyleBannerContainer>
+                </Row>
+            </Container>
         </StyleBannerLayout>
     </>
 }
