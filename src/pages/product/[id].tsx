@@ -2,10 +2,16 @@ import React, { useState, useEffect } from 'react'
 import StyledProduct from './Product.styled'
 import { Header } from '../../components/Header'
 import { Footer } from '../../components/Footer'
-
-
+import { Banner } from '../../components/Banner'
+import { FilterBar } from '../../components/FilterBar'
+import {
+    StyleBannerLayout,
+    StyleBannerContainer,
+    StyleBannerTitle,
+    StyleBannerUrl
+} from '../../components/Banner/Banner.styled';
 export interface IProductDetail {
-    name:string
+    name: string
     description: string
 }
 export interface PropductDetailProps {
@@ -13,12 +19,17 @@ export interface PropductDetailProps {
 }
 
 const ProductDetail: React.FC<PropductDetailProps> = (props) => {
+    const url = "http://lezada-next.themesmummy.com/assets/images/backgrounds/breadcrumb-bg-1.png";
     return (
         <>
-            <Header />
+            {/* <Header />
             <h2>{props.product?.name}</h2>
             <StyledProduct dangerouslySetInnerHTML={{ __html: props.product?.description }} />
-            <Footer />
+            <Footer /> */}
+            <Banner imageUrl="" currentUrl="" title="SayHello" />
+            <FilterBar orderAces={true} perPageItem="1" totalItem="60" />
+
+            
         </>
     )
 }
