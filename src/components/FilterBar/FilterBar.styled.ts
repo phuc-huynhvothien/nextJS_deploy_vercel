@@ -15,10 +15,11 @@ export const StyledFilterBarPageResult = styled.div`
     width : 30%;
 `
 export const StyledFilterBarControl = styled.div`
-    width : 70%;    
+    width : 70%;
+    text-align: right;    
 `
 export const StyledFilterBarHeader = styled.div`
-    display: flex;
+    display:  inline-flex;
     align-items: center;
 `
 export const StyledFilterBarDropdown = styled.div`

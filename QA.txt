@@ -1,0 +1,4 @@
+QA
+1/ Viết style cho hover
+2/ Chia global được hay không. Cụ thể
+3/ @Media sẽ xài ra sao !

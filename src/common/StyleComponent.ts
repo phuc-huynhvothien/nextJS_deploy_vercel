@@ -9,14 +9,11 @@ export const Container = styled.div`
 export const Row = styled.div`
     display: flex;
     flex-wrap: wrap;
-    margin-right: -15px;
-    margin-left: -15px;
     &.align-items-center{
         align-items: center!important;
         margin : 0 auto;
     }
 `
-
 export const BodyContent = styled.div`
 margin-bottom: 130px;
 margin-top: 130px;
@@ -24,9 +21,11 @@ margin-top: 130px;
 export const LeftSide = styled.div`
   flex: 0 0 25%;
   max-width: 25%;
+  padding-right : 30px;
 `
 
 export const RightSide = styled.div`
   flex: 0 0 75%;
   max-width: 75%;
+  display:inline-flex;
 `
