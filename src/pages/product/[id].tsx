@@ -72,7 +72,7 @@ const ProductDetail: React.FC<PropductDetailProps> = (props) => {
             discountPercent :"-12%",
             isNew  : false,
             urlImage: "/product/p4.jpg",
-            urlImageHover: "/product/p5.jpg", 
+            urlImageHover:  "/product/p5.jpg", 
         },
 
     ];
