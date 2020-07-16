@@ -41,7 +41,7 @@ const Product: React.FC<IProduct> = (props) => {
                     </div>
                     <div className="price">
                         <span className="main-price discounted">${props.price}</span>
-                        <span className="discounted-price">${props.priceDiscount}</span>
+                        <span className="discounted-price">{props.priceDiscount? "$"+props.priceDiscount :""}</span>
                     </div>
                 </StyledProductGridContent>
 

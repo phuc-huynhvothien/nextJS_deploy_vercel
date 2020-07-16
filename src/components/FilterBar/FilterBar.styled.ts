@@ -23,8 +23,8 @@ export const StyledFilterBarHeader = styled.div`
     align-items: center;
 `
 export const StyledFilterBarDropdown = styled.div`
-    margin-right: 30px;
-    .single-icon.filter-dropdown select {
+    margin-right: 30px ;
+    select {
         padding-bottom: 5px;
         padding-left: 0;
         cursor: pointer;
