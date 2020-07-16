@@ -19,7 +19,7 @@ const Product: React.FC<IProduct> = (props) => {
                     </StyledTagA>
                     <StyledProductGridBadges>
                         {props.discountPercent != null ? <StyledSpanOnSale>{props.discountPercent}</StyledSpanOnSale> : ""}
-                        {props.isNew ? <StyledSpanHot/> : ""}
+                        {props.isNew ? <StyledSpanHot>New</StyledSpanHot> : ""}
                     </StyledProductGridBadges>
                     <StyledProductGridIcons>
                         <StyledProductGridIcon>

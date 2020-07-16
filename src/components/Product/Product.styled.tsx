@@ -74,7 +74,7 @@ background-color: #98d8ca;
 export const StyledSpanHot = styled(StyledSpanOnSale)`
     background-color: #c61932;
 `
-export const StyledSpanPrice = styled(StyledSpanOnSale)`
+export const StyledSpanPrice = styled.span`
     font-size: 12px;
     font-weight: 600;
     line-height: 1;
@@ -82,7 +82,7 @@ export const StyledSpanPrice = styled(StyledSpanOnSale)`
     color: #aaa;
     padding-right:5px;
 `
-export const StyledDiscountPrice = styled(StyledSpanOnSale)`
+export const StyledDiscountPrice = styled.span`
     font-size: 14px;
     font-weight: 600;
     line-height: 1;
@@ -148,7 +148,7 @@ export const StyledProductGridContent = styled.div`
             color: #d3122a;
             border: none;
             background: none;
-            text-decoration: none;
+            text-decoration: none; 
         }
     }
 `
