@@ -1,80 +1,20 @@
 import styled from 'styled-components';
-export const StyledProductBox = styled.div`
-    margin-bottom: 50px;
-    width : 195px;
-    margin: 0 15px;
-    &.product-box:hover .image-wrap img:nth-child(2){
-        visibility: visible;
-        opacity: 1;
-    }
-    &.product-box:hover .product-icons button{
-        visibility: visible;
-        opacity: 1;
-    }
-    &.product-box:hover .title h3 a{
+export const StyledProductGridImageTag = styled.img`
+    width: 100%;
+    :nth-child(2){
+        position: absolute;
+        z-index: 1;
+        top: 0;
+        left: 0;
         visibility: hidden;
-        transform: translateY(-60%);
         opacity: 0;
     }
-    &.product-box:hover .title>a{
+    :nth-child(1){
+        z-index: 2;
         visibility: visible;
-        transform: translateY(0);
         opacity: 1;
     }
-    
 `
-export const StyledProductGridImage = styled.div`
-    position: relative;
-    a.image-wrap{
-        display: block;
-        img{
-            width: 100%;
-        }
-        img:nth-child(2){
-            position: absolute;
-            z-index: 1;
-            top: 0;
-            left: 0;
-            visibility: hidden;
-            opacity: 0;
-        }
-        img:nth-child(1){
-            z-index: 2;
-            visibility: visible;
-            opacity: 1;
-        }
-    }
-`
-export const StyledProductGridBadges = styled.div`
-    position: absolute;
-    z-index: 9;
-    top: 20px;
-    left: 20px;
-    display: flex;
-    flex-direction: column;
-    span{
-        &.onsale{
-            background-color: #98d8ca;
-        }
-        &.hot{
-            background-color: #c61932;
-        }
-        font-size: 14px;
-        font-weight: 500;
-        line-height: 48px;
-        z-index: 3;
-        display: inline-block;
-        width: 48px;
-        height: 48px;
-        margin-bottom: 10px;
-        text-align: center;
-        text-transform: lowercase;
-        color: #fff;
-        border-radius: 100%;
-    }
-    
-`
-
 export const StyledProductGridIcons = styled.div`
     position: absolute;
     z-index: 9;
@@ -83,11 +23,79 @@ export const StyledProductGridIcons = styled.div`
     display: flex;
     flex-direction: column;
 `
-// TODO**** : For hover to display icons for product
-// &.product-box:hover .product-icons button{
-//     visibility: visible;
-//     opacity: 1;
-// }
+export const StyledTitleBox = styled.div``
+export const StyledTitlePrice = styled.div``
+export const StyledProductBox = styled.div`
+    margin-bottom: 50px;
+    width : 195px;
+    margin: 0 15px;
+    :hover ${StyledProductGridImageTag}:nth-child(2){
+        visibility: visible;
+        opacity: 1;
+    }
+    :hover ${StyledProductGridIcons} button{
+        visibility: visible;
+        opacity: 1;
+    }
+    :hover ${StyledTitleBox} h3 a{
+        visibility: hidden;
+        transform: translateY(-60%);
+        opacity: 0;
+    }
+    :hover ${StyledTitleBox}>a{
+        visibility: visible;
+        transform: translateY(0);
+        opacity: 1;
+    }
+    
+`
+export const StyledTagA = styled.a`
+    display: block;
+`
+export const StyledProductGridImageUpdated = styled.div`
+    position: relative;
+    ${StyledTagA}.${StyledProductGridImageTag}
+`
+export const StyledSpanOnSale = styled.span`
+font-size: 14px;
+font-weight: 500;
+line-height: 48px;
+z-index: 3;
+display: inline-block;
+width: 48px;
+height: 48px;
+margin-bottom: 10px;
+text-align: center;
+text-transform: lowercase;
+color: #fff;
+border-radius: 100%;
+background-color: #98d8ca;
+`
+export const StyledSpanHot = styled(StyledSpanOnSale)`
+    background-color: #c61932;
+`
+export const StyledSpanPrice = styled(StyledSpanOnSale)`
+    font-size: 12px;
+    font-weight: 600;
+    line-height: 1;
+    text-decoration: line-through;
+    color: #aaa;
+    padding-right:5px;
+`
+export const StyledDiscountPrice = styled(StyledSpanOnSale)`
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 1;
+    color: #333;
+`
+export const StyledProductGridBadges = styled.div`
+    position: absolute;
+    z-index: 9;
+    top: 20px;
+    left: 20px;
+    display: flex;
+    flex-direction: column;
+`
 
 export const StyledProductGridIcon = styled.div`
     display: inline;
@@ -110,7 +118,7 @@ export const StyledProductGridIcon = styled.div`
 export const StyledProductGridContent = styled.div`
     position: relative;
     padding-top: 25px;
-    div.title{
+    >div{
         position:relative;
         h3 a{
             font-size: 17px;
@@ -141,22 +149,6 @@ export const StyledProductGridContent = styled.div`
             border: none;
             background: none;
             text-decoration: none;
-        }
-    }
-    div.price{
-        .main-price.discounted{
-            font-size: 12px;
-            font-weight: 600;
-            line-height: 1;
-            text-decoration: line-through;
-            color: #aaa;
-            padding-right:5px;
-        }
-        .discounted-price{
-            font-size: 14px;
-            font-weight: 600;
-            line-height: 1;
-            color: #333;
         }
     }
 `

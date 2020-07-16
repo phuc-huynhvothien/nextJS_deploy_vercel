@@ -1,26 +1,27 @@
 import React from 'react';
 import {
-    StyledProductBox, StyledProductGridBadges,
-    StyledProductGridIcons, StyledProductGridImage,
-    StyledProductGridIcon, StyledProductGridContent
+    StyledProductBox, StyledProductGridBadges,StyledSpanHot,StyledSpanOnSale,
+    StyledProductGridIcons,StyledTitleBox,StyledTitlePrice,StyledDiscountPrice,StyledSpanPrice,
+    StyledProductGridIcon, StyledProductGridContent,
+    StyledProductGridImageTag, StyledProductGridImageUpdated, StyledTagA
 } from './Product.styled'
 import { FiHeart, FiSearch } from "react-icons/fi";
 import { BsFillReplyAllFill } from "react-icons/bs";
 import { IProduct } from '../../models/IProduct'
 const Product: React.FC<IProduct> = (props) => {
     return <>
-        <StyledProductBox className="product-box">
+        <StyledProductBox>
             <div className="product-grid">
-                <StyledProductGridImage>
-                    <a className="image-wrap" href="/shop/product-basic/lorem-ipsum-decor-one">
-                        <img src={props.urlImage} className="img-fluid" alt="Lorem ipsum decor one" />
-                        <img src={props.urlImageHover} className="img-fluid" alt="Lorem ipsum decor one" />
-                    </a>
+                <StyledProductGridImageUpdated>
+                    <StyledTagA>
+                        <StyledProductGridImageTag src={props.urlImage}></StyledProductGridImageTag>
+                        <StyledProductGridImageTag src={props.urlImageHover}></StyledProductGridImageTag>
+                    </StyledTagA>
                     <StyledProductGridBadges>
-                        {props.discountPercent != null ? <span className="onsale">{props.discountPercent}</span> : ""}
-                        {props.isNew ? <span className="hot">New</span> : ""}
+                        {props.discountPercent != null ? <StyledSpanOnSale>{props.discountPercent}</StyledSpanOnSale> : ""}
+                        {props.isNew ? <StyledSpanHot/> : ""}
                     </StyledProductGridBadges>
-                    <StyledProductGridIcons className="product-icons">
+                    <StyledProductGridIcons>
                         <StyledProductGridIcon>
                             <button><FiHeart fontSize={20} /></button>
                         </StyledProductGridIcon>
@@ -31,18 +32,20 @@ const Product: React.FC<IProduct> = (props) => {
                             <button><FiSearch fontSize={20} /></button>
                         </StyledProductGridIcon>
                     </StyledProductGridIcons>
-                </StyledProductGridImage>
+                </StyledProductGridImageUpdated>
+
+
                 <StyledProductGridContent>
-                    <div className="title">
+                    <StyledTitleBox>
                         <h3>
                             <a href="#">{props.name}</a>
                         </h3>
                         <a href="#">Select Option</a>
-                    </div>
-                    <div className="price">
-                        <span className="main-price discounted">${props.price}</span>
-                        <span className="discounted-price">{props.priceDiscount? "$"+props.priceDiscount :""}</span>
-                    </div>
+                    </StyledTitleBox>
+                    <StyledTitlePrice>
+                        <StyledSpanPrice>${props.price}</StyledSpanPrice>
+                        <StyledDiscountPrice>{props.priceDiscount ? "$" + props.priceDiscount : ""}</StyledDiscountPrice>
+                    </StyledTitlePrice>
                 </StyledProductGridContent>
 
             </div>
