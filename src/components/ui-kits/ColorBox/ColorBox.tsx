@@ -7,8 +7,7 @@ const ColorBox: React.FC<IColorBox> = (props) => {
         {!props.reset? 
         <StyledColorBox reset={props.reset} color={props.colorText} size={props.size ? props.size : defaultSize} isCircle={props.isCircle} />
         :
-        ""
-        // <StyledColorBoxDefault size={props.size ? props.size : defaultSize}>X</StyledColorBoxDefault>
+        <StyledColorBoxDefault size={props.size ? props.size : defaultSize}>X</StyledColorBoxDefault>
     }
         
     </>

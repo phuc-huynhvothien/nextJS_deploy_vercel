@@ -18,7 +18,7 @@ import { BodyContent, Row, Container, RightSide, LeftSide } from '../common/Styl
 import { ButtonTransparent } from '../components/ui-kits/ButtonTransparent'
 import { Text } from '../components/ui-kits/Text';
 import { Product } from '../components/Product'
-import { ColorBox} from '../components/ui-kits/ColorBox'
+import { ColorBox } from '../components/ui-kits/ColorBox'
 // import 'bootstrap/dist/css/bootstrap.min.css';
 export const HomeContainer = styled.div``
 
@@ -133,12 +133,18 @@ function Home({ posts }) {
 
                 {/* color */}
                 <h2 style={{ paddingBottom: "20px" }}>Color</h2>
-                <ul>
-                  <li style={{listStyleType:"none"}}>
-                      <ColorBox colorText="red" isCircle={true} size="30" ></ColorBox>
-                      <ColorBox colorText="yellow" isCircle={true} size="30" ></ColorBox>
-                      <ColorBox colorText="gray" isCircle={false} size="30" ></ColorBox>
-                      <ColorBox colorText="gray" isCircle={true} size="30" reset={true} ></ColorBox>
+                <ul style={{ listStyleType: "none",display:"inline-flex" }}>
+                  <li >
+                    <ColorBox colorText="red" isCircle={true} ></ColorBox>
+                  </li>
+                  <li>
+                    <ColorBox colorText="yellow" isCircle={true} size="30" ></ColorBox>
+                  </li>
+                  <li>
+                    <ColorBox colorText="gray" isCircle={false} size="35" ></ColorBox>
+                  </li>
+                  <li>
+                    <ColorBox colorText="gray" isCircle={true}  reset={true} ></ColorBox>
                   </li>
                 </ul>
                 {/* popular product */}
