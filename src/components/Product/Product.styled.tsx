@@ -1,4 +1,6 @@
 import styled from 'styled-components';
+import {H3,TagA,Div,ButtonDefault} from '../../common/StyleComponent'
+
 export const StyledProductGridImageTag = styled.img`
     width: 100%;
     :nth-child(2){
@@ -23,8 +25,6 @@ export const StyledProductGridIcons = styled.div`
     display: flex;
     flex-direction: column;
 `
-export const StyledTitleBox = styled.div``
-export const StyledTitlePrice = styled.div``
 export const StyledProductBox = styled.div`
     margin-bottom: 50px;
     width : 195px;
@@ -33,28 +33,25 @@ export const StyledProductBox = styled.div`
         visibility: visible;
         opacity: 1;
     }
-    :hover ${StyledProductGridIcons} button{
+    :hover ${StyledProductGridIcons} ${ButtonDefault}{
         visibility: visible;
         opacity: 1;
     }
-    :hover ${StyledTitleBox} h3 a{
+    :hover ${Div} ${H3} ${TagA}{
         visibility: hidden;
         transform: translateY(-60%);
         opacity: 0;
     }
-    :hover ${StyledTitleBox}>a{
+    :hover ${Div}>${TagA}{
         visibility: visible;
         transform: translateY(0);
         opacity: 1;
     }
     
 `
-export const StyledTagA = styled.a`
-    display: block;
-`
 export const StyledProductGridImageUpdated = styled.div`
     position: relative;
-    ${StyledTagA}.${StyledProductGridImageTag}
+    ${TagA}.${StyledProductGridImageTag}
 `
 export const StyledSpanOnSale = styled.span`
 font-size: 14px;
@@ -96,10 +93,9 @@ export const StyledProductGridBadges = styled.div`
     display: flex;
     flex-direction: column;
 `
-
 export const StyledProductGridIcon = styled.div`
     display: inline;
-    button{
+    ${ButtonDefault}{
         line-height: 40px;
         display: inline-block;
         visibility: hidden;
@@ -118,9 +114,9 @@ export const StyledProductGridIcon = styled.div`
 export const StyledProductGridContent = styled.div`
     position: relative;
     padding-top: 25px;
-    >div{
+    >${Div}{
         position:relative;
-        h3 a{
+        ${H3} ${TagA}{
             font-size: 17px;
             font-weight: 400;
             line-height: 1.6;
@@ -133,7 +129,7 @@ export const StyledProductGridContent = styled.div`
             color: #333;
             text-decoration: none;
         }
-        >a{
+        >${TagA}{
             font-size: 18px;
             font-weight: 500;
             line-height: 1.3;

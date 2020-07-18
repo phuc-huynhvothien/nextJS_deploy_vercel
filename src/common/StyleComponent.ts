@@ -14,6 +14,19 @@ export const Row = styled.div`
         margin : 0 auto;
     }
 `
+export const H3 = styled.h3`
+`
+export const H2 = styled.h2`
+`
+export const H1 = styled.h1`
+`
+export const TagA = styled.a`
+display:block;
+`
+export const ButtonDefault = styled.button`
+`
+export const Div = styled.div`
+`
 export const BodyContent = styled.div`
 margin-bottom: 130px;
 margin-top: 130px;

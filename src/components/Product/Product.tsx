@@ -1,10 +1,11 @@
 import React from 'react';
 import {
     StyledProductBox, StyledProductGridBadges,StyledSpanHot,StyledSpanOnSale,
-    StyledProductGridIcons,StyledTitleBox,StyledTitlePrice,StyledDiscountPrice,StyledSpanPrice,
+    StyledProductGridIcons,StyledDiscountPrice,StyledSpanPrice,
     StyledProductGridIcon, StyledProductGridContent,
-    StyledProductGridImageTag, StyledProductGridImageUpdated, StyledTagA
+    StyledProductGridImageTag, StyledProductGridImageUpdated
 } from './Product.styled'
+import {TagA,ButtonDefault,H3,Div} from '../../common/StyleComponent'
 import { FiHeart, FiSearch } from "react-icons/fi";
 import { BsFillReplyAllFill } from "react-icons/bs";
 import { IProduct } from '../../models/IProduct'
@@ -13,39 +14,39 @@ const Product: React.FC<IProduct> = (props) => {
         <StyledProductBox>
             <div className="product-grid">
                 <StyledProductGridImageUpdated>
-                    <StyledTagA>
+                    <TagA>
                         <StyledProductGridImageTag src={props.urlImage}></StyledProductGridImageTag>
                         <StyledProductGridImageTag src={props.urlImageHover}></StyledProductGridImageTag>
-                    </StyledTagA>
+                    </TagA>
                     <StyledProductGridBadges>
                         {props.discountPercent != null ? <StyledSpanOnSale>{props.discountPercent}</StyledSpanOnSale> : ""}
                         {props.isNew ? <StyledSpanHot>New</StyledSpanHot> : ""}
                     </StyledProductGridBadges>
                     <StyledProductGridIcons>
                         <StyledProductGridIcon>
-                            <button><FiHeart fontSize={20} /></button>
+                            <ButtonDefault><FiHeart fontSize={20} /></ButtonDefault>
                         </StyledProductGridIcon>
                         <StyledProductGridIcon>
-                            <button><BsFillReplyAllFill fontSize={20} /></button>
+                            <ButtonDefault><BsFillReplyAllFill fontSize={20} /></ButtonDefault>
                         </StyledProductGridIcon>
                         <StyledProductGridIcon>
-                            <button><FiSearch fontSize={20} /></button>
+                            <ButtonDefault><FiSearch fontSize={20} /></ButtonDefault>
                         </StyledProductGridIcon>
                     </StyledProductGridIcons>
                 </StyledProductGridImageUpdated>
 
 
                 <StyledProductGridContent>
-                    <StyledTitleBox>
-                        <h3>
-                            <a href="#">{props.name}</a>
-                        </h3>
-                        <a href="#">Select Option</a>
-                    </StyledTitleBox>
-                    <StyledTitlePrice>
+                    <Div>
+                        <H3>
+                            <TagA href="#">{props.name}</TagA>
+                        </H3>
+                        <TagA href="#">Select Option</TagA>
+                    </Div>
+                    <Div>
                         <StyledSpanPrice>${props.price}</StyledSpanPrice>
                         <StyledDiscountPrice>{props.priceDiscount ? "$" + props.priceDiscount : ""}</StyledDiscountPrice>
-                    </StyledTitlePrice>
+                    </Div>
                 </StyledProductGridContent>
 
             </div>
