@@ -1,6 +1,4 @@
 import styled from 'styled-components'
-import Button from '../ui-kits/Button/Button'
-const white = "#FFF"
 const darkCharcoal = "#333"
 
 export const StyledHeader = styled.header`
@@ -28,13 +26,13 @@ export const StyledHeader = styled.header`
     display: block
   }
   .white-content .header-content__logo button,header.white-content .header-content__navigation>ul>li>a {
-    color: ${white}
+    color: ${props => props.theme.colors.primary}
   }
   .white-content .header-content__navigation>ul>li>a:after,header.white-content .header-content__navigation>ul>li>a:hover:after {
-    background-color: ${white}
+    background-color: ${props => props.theme.colors.primary}
   }
   .white-content .header-content__icons>ul>li>a>svg,header.white-content .header-content__icons>ul>li>button>svg,header.white-content .header-content__navigation>ul>li:hover>svg,header.white-content .header-content__navigation>ul>li>svg {
-    fill:  ${white}
+    fill:  ${props => props.theme.colors.primary}
   }
   .is-sticky {
     position: fixed;
@@ -45,7 +43,7 @@ export const StyledHeader = styled.header`
     transition: all .3s;
     -webkit-animation: fadeInDown .7s ease-in-out 0s 1 normal none running;
     animation: fadeInDown .7s ease-in-out 0s 1 normal none running;
-    background-color: ${white};
+    background-color: ${props => props.theme.colors.primary};
     box-shadow: 0 2px 5px rgba(0,0,0,.2)
   }
   .is-sticky.topbar-shadow:before {

@@ -1,25 +1,18 @@
 import React from 'react'
-import Head from 'next/head'
+
 import Layout from '../components/Layout/Layout'
 import styled from 'styled-components'
-import Button from '../components/ui-kits/Button/Button'
 import withApollo from '../utils/withApollo'
-import { useQuery } from '@apollo/react-hooks'
-import { GET_PRODUCTS } from '../graphql/product/product.query'
-import Router from 'next/router'
-import Link from 'next/link'
-
-import { Header } from '../components/Header'
-import { Footer } from '../components/Footer'
 import { Banner } from '../components/Banner'
 import { FilterBar } from '../components/FilterBar'
 import { SearchBox } from '../components/SearchBox'
-import { BodyContent, Row, Container, RightSide, LeftSide } from '../common/StyleComponent'
+import { ProductTrend } from '../components/Product'
+import { BodyContent, Row, Container, RightSide, LeftSide,Div,H3,ButtonDefault,TagA,H1,H2 } from '../common/StyleComponent'
 import { ButtonTransparent } from '../components/ui-kits/ButtonTransparent'
-import { Text } from '../components/ui-kits/Text';
 import { Product } from '../components/Product'
 import { ColorBox } from '../components/ui-kits/ColorBox'
-// import 'bootstrap/dist/css/bootstrap.min.css';
+
+import { Button } from 'reactstrap';
 export const HomeContainer = styled.div``
 
 export const StyledHomeBody = styled.div`
@@ -106,21 +99,16 @@ function Home({ posts }) {
   ];
   return (
     <>
-      <Head>
-        <title>STRANGS Template</title>
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
-      <Header />
+      
       <Banner imageUrl="/product/banner.png" currentUrl="Home / Shop Left Bar" title="Shop Welcome  ^__^" />
       <FilterBar orderAces={true} perPageItem="20" totalItem="60" />
       <BodyContent>
         <Container>
           <Row>
             <LeftSide>
-              <div className="shop-sidebar">
+              <Div >
                 <SearchBox></SearchBox>
-                {/* searchbox */}
-                <h2 style={{ paddingBottom: "20px" }}>Categories</h2>
+                <H2 style={{ paddingBottom: "20px" }}>Categories</H2>
                 <ul>
                   {tagFull.map((item, index) =>
                     (
@@ -129,10 +117,9 @@ function Home({ posts }) {
                       </li>
                     ))}
                 </ul>
-                {/* categories */}
 
-                {/* color */}
-                <h2 style={{ paddingBottom: "20px" }}>Color</h2>
+                <H2 style={{ paddingBottom: "20px" }}>Color</H2>
+                <Button color="success">success</Button>{' '}
                 <ul style={{ listStyleType: "none",display:"inline-flex" }}>
                   <li >
                     <ColorBox colorText="red" isCircle={true} ></ColorBox>
@@ -147,15 +134,14 @@ function Home({ posts }) {
                     <ColorBox colorText="gray" isCircle={true}  reset={true} ></ColorBox>
                   </li>
                 </ul>
-                {/* popular product */}
-                <div>
+                <ProductTrend></ProductTrend>
+                <Div>
                   {tag.map((item, index) =>
                     (
                       <ButtonTransparent active="" children={item.toString() + " /"} size="15" line="1.5" color="#7e7e7e" key={index} ></ButtonTransparent>
                     ))}
-                </div>
-                {/* tags */}
-              </div>
+                </Div>
+              </Div>
             </LeftSide>
             <RightSide>
               {fakeProduct.map((item, index) => (
@@ -167,13 +153,12 @@ function Home({ posts }) {
                   isNew={item.isNew}
                   urlImageHover={item.urlImageHover}></Product>
               ))}
-
             </RightSide>
           </Row>
         </Container>
       </BodyContent>
 
-      <Footer />
+     
     </>
   )
 }

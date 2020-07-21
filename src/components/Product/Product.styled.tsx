@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import {H3,TagA,Div,ButtonDefault} from '../../common/StyleComponent'
+import { H3, TagA, Div, ButtonDefault } from '../../common/StyleComponent'
 
 export const StyledProductGridImageTag = styled.img`
     width: 100%;
@@ -64,9 +64,9 @@ height: 48px;
 margin-bottom: 10px;
 text-align: center;
 text-transform: lowercase;
-color: #fff;
+color: ${props => props.theme.colors.white};
 border-radius: 100%;
-background-color: #98d8ca;
+background-color: ${props => props.theme.colors.blue8};
 `
 export const StyledSpanHot = styled(StyledSpanOnSale)`
     background-color: #c61932;
@@ -83,7 +83,7 @@ export const StyledDiscountPrice = styled.span`
     font-size: 14px;
     font-weight: 600;
     line-height: 1;
-    color: #333;
+    color: ${props => props.theme.colors.blue8};
 `
 export const StyledProductGridBadges = styled.div`
     position: absolute;
@@ -126,7 +126,7 @@ export const StyledProductGridContent = styled.div`
             transition-duration: .6s;
             transform: translateY(0);
             opacity: 1;
-            color: #333;
+            color: ${props => props.theme.colors.gray};
             text-decoration: none;
         }
         >${TagA}{

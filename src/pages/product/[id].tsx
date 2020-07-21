@@ -78,59 +78,7 @@ const ProductDetail: React.FC<PropductDetailProps> = (props) => {
     ];
     return (
         <>
-            <Header />
-            <Banner imageUrl={url} currentUrl="Home / Shop Left Bar" title="Shop Welcome  ^__^" />
-            <FilterBar orderAces={true} perPageItem="20" totalItem="60" />
-            <BodyContent>
-                <Container>
-                    <Row>
-                        <LeftSide>
-                            <div className="shop-sidebar">
-                                <SearchBox></SearchBox>
-                                {/* searchbox */}
-                                <h2 style={{ paddingBottom: "20px" }}>Categories</h2>
-                                <ul>
-                                    {tagFull.map((item, index) =>
-                                        (
-                                            <li style={{ paddingBottom: "20px", listStyleType: "none" }} key={index}>
-                                                <ButtonTransparent active="" children={item.toString()} size="15" line="1.5" color="#7e7e7e" key={index} capitalize={true} ></ButtonTransparent>
-                                            </li>
-                                        ))}
-                                </ul>
-                                {/* categories */}
-
-                                {/* color */}
-
-                                {/* popular product */}
-                                <div>
-                                    {tag.map((item, index) =>
-                                        (
-                                            <ButtonTransparent active="" children={item.toString() + " /"} size="15" line="1.5" color="#7e7e7e" key={index} ></ButtonTransparent>
-                                        ))}
-                                </div>
-                                {/* tags */}
-                            </div>
-                        </LeftSide>
-                        <RightSide>
-                            {fakeProduct.map((item,index)=> (
-                               <Product key={index} id={item.id} adminId={item.adminId} 
-                               price={item.price} priceDiscount={item.priceDiscount}
-                               productId={item.productId} name={item.name} 
-                               discountPercent={item.discountPercent}
-                               uid={item.uid} urlImage={item.urlImage} 
-                               isNew={item.isNew}
-                               urlImageHover={item.urlImageHover}></Product>
-                            ))}
-                            
-                        </RightSide>
-                    </Row>
-                </Container>
-            </BodyContent>
-
-            <Footer />
-
-
-
+            <h1>Detail :)</h1>
         </>
     )
 }
