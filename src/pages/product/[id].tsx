@@ -9,23 +9,24 @@ export interface IProductDetail {
     description: string
 }
 export interface IPropductDetailProps {
-    id: string
-    images: string[]
-    name: string
-    description: string
-    price: number
-    shortDescription: string
+  id: string
+  images: string[]
+  name: string
+  description: string
+  price: number
+  shortDescription: string
 }
 
 import withApollo from '../../utils/withApollo'
 import { useQuery } from '@apollo/react-hooks'
 import { GET_PRODUCT } from '../../graphql/product/product.query'
+import { log } from 'console'
 
 
 
 const ProductDetail: React.FC<IPropductDetailProps> = (props) => {
     const router = useRouter()
-    const createMarkup = (htmlString:string) => ({ __html: htmlString })
+    const createMarkup = (htmlString) => ({ __html: htmlString })
 
     const { loading, error, data } = useQuery(GET_PRODUCT, {
       variables: {
@@ -39,8 +40,8 @@ const ProductDetail: React.FC<IPropductDetailProps> = (props) => {
         <>
             <Header />
             <Layout>
-    <h1>{detailProduct? detailProduct.name: "NULL :) "}</h1>
-    <div dangerouslySetInnerHTML={createMarkup(detailProduct.description)} />
+            <h1>{detailProduct? detailProduct.name: "NULL :) "}</h1>
+            <div dangerouslySetInnerHTML={createMarkup(detailProduct?.description)} />
             </Layout>
             <Footer />
         </>
