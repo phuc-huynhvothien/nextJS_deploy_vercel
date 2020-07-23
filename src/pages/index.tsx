@@ -9,10 +9,11 @@ import { GET_PRODUCTS } from '../graphql/product/product.query'
 import { Header } from '../components/Header'
 import { Footer } from '../components/Footer'
 import { Card } from '../components/ui-kits/Card'
-import Router from 'next/router'
 import Link from 'next/link'
-export const HomeContainer = styled.div``
 
+
+
+export const HomeContainer = styled.div``
 export const StyledHomeBody = styled.div`
   display: grid;
   justify-content: center;
@@ -21,22 +22,24 @@ export const StyledHomeBody = styled.div`
   grid-gap: 10px;
 `
 
-function Home({ posts }) {
-  // const { loading, error, data } = useQuery(GET_PRODUCTS, {
-  //   variables: {
-  //     input: {
-  //       page: 1,
-  //       keyword: 'Samsung',
-  //     },
-  //   },
-  // })
-  // if (error) return <h1>Error</h1>
-  // if (loading) return <h1>Loading...</h1>
-
-  // const products = data?.getAllProduct?.data
-  // if (!products || !products.length) {
-  //   return <p>Not found</p>
-  // }
+function Home() {
+  const { loading, error, data } = useQuery(GET_PRODUCTS, {
+    variables: {
+      input: {
+        page: 1,
+        keyword: 'Samsung',
+      },
+    },
+  })
+  if (error) return <h1>Error</h1>
+  if (loading) return <h1>Loading...</h1>
+  const products = data?.getAllProduct?.data
+  if (!products || !products.length) {
+    return <p>Not found</p>
+  }
+  function refetch(id:string){
+    alert("CC");
+  }
   return (
     <>
       <Head>
@@ -46,38 +49,38 @@ function Home({ posts }) {
       <Header />
       <Layout>
         <StyledHomeBody>
-          {posts.data.map((data) => (
+          {products.map((data) => (
             <Card
+
               key={data.id}
+
               imageURL={data.image}
+
               buttonGroups={
+
                 <>
+
+                  <Button>View 2</Button>
                   <Link href="/product/[id]" as={`/product/${data.id}`}>
                     <a>View by Link</a>
                   </Link>
-                  <Button onClick={() => Router.push(`/product/${data.id}`)}>View by Router</Button>
-                  <Button>Add to Cart</Button>
+                  {/* <Button onClick={() => refetch(data.id)}>Add to Cart1</Button> */}
+                  {/* <button onClick={() => refetch(data.id)}>Refetch!</button> */}
+
                 </>
+
               }
+
             >
+
               {data.name}
+
             </Card>
           ))}
-          <h1>Hi</h1>
         </StyledHomeBody>
       </Layout>
       <Footer />
     </>
   )
 }
-export async function getStaticProps() {
-  const res = await fetch('https://min-shop.herokuapp.com/rest/product')
-  const posts = await res.json();
-  return {
-    props: {
-      posts,
-    },
-  }
-}
-// export default withApollo({ ssr: true })(Home)
-export default Home;
+export default withApollo({ ssr: true })(Home)
