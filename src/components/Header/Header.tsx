@@ -8,7 +8,7 @@ import {
   StyledHeaderMenuItem,
 } from './Header.styled'
 import { IoMdCart } from 'react-icons/io'
-
+import Router from 'next/router'
 interface IHeader {
   cartCount?: number
 }
@@ -29,7 +29,9 @@ const Header: React.FC<IHeader> = (props) => {
           <IoMdCart fontSize={20} />
           {props.cartCount > 0 && <div className="bagde">{props.cartCount}</div>}
         </div>
-        <StyledHeaderButton>Login</StyledHeaderButton>
+        {/* <StyledHeaderButton>Login</StyledHeaderButton> */}
+            <button style={{marginRight : "10px;"}} onClick={() =>  Router.push('/signup')}>Sign Up!</button>
+                <button onClick={() =>  Router.push('/signin')}>Sign In!</button>
       </div>
     </StyledHeader>
   )
