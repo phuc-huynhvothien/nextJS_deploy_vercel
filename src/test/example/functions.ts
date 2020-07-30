@@ -3,11 +3,11 @@ const functions = {
     isNull: () => null,
     checkValue: (x) => x,
     
-    // createUser: () => {
-    //   const user = { firstName: 'Nordic' }
-    //   user['lastName'] = 'Coder'
-    //   return user
-    // },
+    createUser: () => {
+      const user = { firstName: 'Phuc' }
+      user['lastName'] = 'Huynh'
+      return user
+    },
 
 
     // totalCallBack: (num1, cb) => cb(num1),
